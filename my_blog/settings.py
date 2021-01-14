@@ -26,9 +26,7 @@ SECRET_KEY = 'f_+pfo3^ceb+7xy85x-uq*017+0+oa80co%8w$zd5+tat!n7@1'
 DEBUG = True
 
 ALLOWED_HOSTS = ['5af08324a7f2.ngrok.io',
-                 '127.0.0.1' ,
-
-
+                 '127.0.0.1',
 ]
 
 
@@ -53,7 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ]
 
 ROOT_URLCONF = 'my_blog.urls'
 
@@ -126,3 +126,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
