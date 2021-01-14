@@ -25,7 +25,7 @@ SECRET_KEY = 'f_+pfo3^ceb+7xy85x-uq*017+0+oa80co%8w$zd5+tat!n7@1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['5af08324a7f2.ngrok.io',
+ALLOWED_HOSTS = ['ablo-my-blog.herokuapp.com',
                  '127.0.0.1',
 ]
 
