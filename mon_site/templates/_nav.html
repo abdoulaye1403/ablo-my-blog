@@ -51,28 +51,23 @@
           </ul>
         </li>
         
-      </ul>
+      </ul> 
       <!-- Left links -->
 
       <!-- Search form -->
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-      <form class="form-inline" >
+      <form class="form-inline" action="{% url 'recherche' %}">
       
         <input
           type="search"
           class="form-control " 
-          placeholder="type Article"
+          placeholder="Recherche"
           aria-label="Chercher" 
+          name="article"
         />
       
        
-          <button
-          class="btn btn-outline-primary"
-          type="button"
-          data-mdb-ripple-color="dark" 
-          >
-          Chercher un Article
-        </button>
+         
         
       </form>
     </ul>

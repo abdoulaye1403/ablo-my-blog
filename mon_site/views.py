@@ -11,4 +11,9 @@ def detail(request,id_article):
 	   categorie=article.categorie 
 	   article_en_relation=Article.objects.filter(categorie=categorie)[:6]
 	   context={"article":article,"aer":article_en_relation}
-	   return render(request,'detail.html',context) 
+	   return render(request,'detail.html',context)  
+
+def recherche(request): 
+	   query=request.GET["article"] 
+	   article=Article.objects.filter(title__icontains=query)
+	   return render(request,'recherche.html',{"article":article})  

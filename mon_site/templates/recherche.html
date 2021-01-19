@@ -1,18 +1,18 @@
 <!DOCTYPE html>
- {% extends 'base.html'  %}
-{% load static  %}
-<html lang="fr">
+{% extends 'base.html'  %}
+{% load static %}
+<html>
 <head>
-  
+	<title></title>
 </head>
-<body> 
+<body>
 {% block content %}
- 
-<h1 class="text-center mt-3">Bienvenue sur mon Site</h1>
+
+<h1 class="text-center mt-3">Resultat de la recherche</h1>
 
 <div class="container">
   <div class="row">
-     {% for article in list_article  %}
+     {% for article in article  %}
     <div class="col-12 col-md-6 col-lg-3 col-xl-3">
       <div class="card  mb-3 p-2" >
         {% if article.image == "http://default" %}  
@@ -34,7 +34,6 @@
      {% endfor %}
   </div>
 </div>
-
-  {% endblock %}
+{% endblock %}
 </body>
 </html>
