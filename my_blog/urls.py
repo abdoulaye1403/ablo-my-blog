@@ -1,4 +1,4 @@
-"""my_blog URL Configuration
+  """my_blog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -24,4 +24,5 @@ urlpatterns = [
     path('', home, name="home"),
     path('article/<int:id_article>', detail, name="detail"),
     path('article/recherche', recherche, name="recherche"),
+    path('message-sms', sms, name="sms"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
