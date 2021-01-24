@@ -25,8 +25,8 @@ SECRET_KEY = 'f_+pfo3^ceb+7xy85x-uq*017+0+oa80co%8w$zd5+tat!n7@1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ablo-my-blog.herokuapp.com',
-                 '127.0.0.1',
+ALLOWED_HOSTS = ['ablo-my-blog.herokuapp.com','127.0.0.1','192.168.1.110',
+                 
 ]
 
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mon_site',
     'django_extensions',
+    'app_auth',
 ]
 
 MIDDLEWARE = [

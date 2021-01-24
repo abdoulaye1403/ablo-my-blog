@@ -21,10 +21,11 @@ def sms(request):
 	message=request.GET['body']
 	message_splited=message.split("-")
 	title=message_splited[0]
-	detail=message_splited.[1]
+	detail=message_splited[1]
 
 	agri_categorie=Categorie.objects.get(id=2)
 	article=Article(title=title,categorie=agri_categorie,detail=detail,image="http://default")
 	article.save()
 	print("données enregistrer avec succès")
 	return HttpResponse("données enregistrer avec succès")
+ 

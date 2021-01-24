@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'base.html'  %}
+
+
+
+<html lang="fr">
+
+{% block title %} Connexion au blog {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="col-md-12 mt-5">
+          {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
+          {% endfor %}
+          {% endif %}
+          <form action="" method="POST">{% csrf_token %}
+   	        <div class="card mb-3">
+   	            <div class="card-header text-center">
+   	 	           <i class="fas fa-user">connexion au blog</i>
+                </div>
+                <div class="card-body">
+                	<input type="text" name="username" placeholder="Nom Utilisateur" class="form-control mb-2" required="">
+                	<input type="password" name="pwd" placeholder="Mot de Passe" class="form-control" required="">	
+                </div>
+                <div class="card-footer">
+                	<button class="btn btn-primary btn-block ">Se Connecter</button>
+                </div>
+            </div>
+           </form>
+        </div>
+    </div>
+
+{% endblock %}
+</html>
