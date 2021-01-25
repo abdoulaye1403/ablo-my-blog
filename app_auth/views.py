@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from .forms import LoginForm
@@ -15,12 +15,14 @@ def login_blog(request):
                 return redirect('home')
             else: 
                 messages.error(request,"authentification échouée")
-                return render(request ,"login.html", {"form":form})   
+                return render(request ,"login.html", {'form':form})   
         else:
-            return render(request ,"login.html", {"form":form}) 
-    else:  
+            for field in form:
+                field.field.widget.attrs['class'] = (field.field.widget.attrs.get('class') or '') + " is-invalid"
+            return render(request ,'login.html', {'form':form}) 
+    else:   
        form = LoginForm()
-       return render(request,"login.html",{"form":form}) 
+       return render(request,'login.html',{'form':form}) 
 
    
    

@@ -1,10 +1,5 @@
-<!DOCTYPE html>
+
 {% extends 'base.html'  %}
-
-
-
-<html lang="fr">
-
 {% block title %} Connexion au blog {% endblock %}
 
 {% block content %}
@@ -16,18 +11,33 @@
             <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
           {% endfor %}
           {% endif %}
-          <form action="" method="POST">{% csrf_token %}
+          <form action="" method="POST" novalidate> {% csrf_token %}
    	        <div class="card mb-3">
    	            <div class="card-header text-center">
    	 	           <i class="fas fa-user">connexion au blog</i>
                 </div>
                 <div class="card-body">
                 	<label for="id_username">Nom Utilisateur</label>
-                	{{form.username}}
+                	        {% if form.username.errors %}
+                	        {% for error in form.username.errors %}
+                	            <div><small class="text-danger">{{error}}</small></div>
+
+                	        {% endfor %}
+ 
+                	        {% endif %}
+                    {{form.username}}
 
                 	<label for="id_pwd">Mot de Passe</label>
+                	        {% if form.pwd.errors %}
+                	        {% for error in form.pwd.errors %}
+                	            <div><small class="text-danger">{{error}}</small></div>
 
-                	{{form.pwd}}
+                	        {% endfor %}
+ 
+                	        {% endif %}
+                	    
+                    {{form.pwd}}
+                </div>
                 <div class="card-footer">
                 	<button class="btn btn-primary btn-block ">Se Connecter</button>
                 </div>
@@ -37,4 +47,25 @@
     </div>
 
 {% endblock %}
-</html>
+
+{% block scripts %}
+
+<script>
+	$(document).ready(function(){
+        $('input').keyup(function(){
+        let texSaisi = $(this).val();
+        if(texSaisi === ""){
+        	if(!$(this).hasClass('is-invalid')){
+        		$(this).addClass('is-invalid');
+        	}
+        } else{
+        	$(this).removeClass('is-invalid');
+        }
+
+        })
+
+	})
+
+</script>
+
+{% endblock %}
