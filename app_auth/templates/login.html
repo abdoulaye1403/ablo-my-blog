@@ -20,7 +20,7 @@
                 	<label for="id_username">Nom Utilisateur</label>
                 	        {% if form.username.errors %}
                 	        {% for error in form.username.errors %}
-                	            <div><small class="text-danger">{{error}}</small></div>
+                	            <div class="div-error-{{form.username.name}}"><small class="text-danger">{{error}}</small></div>
 
                 	        {% endfor %}
  
@@ -30,7 +30,7 @@
                 	<label for="id_pwd">Mot de Passe</label>
                 	        {% if form.pwd.errors %}
                 	        {% for error in form.pwd.errors %}
-                	            <div><small class="text-danger">{{error}}</small></div>
+                	            <div class="div-error-{{form.pwd.name}}"><small class="text-danger">{{error}}</small></div>
 
                 	        {% endfor %}
  
@@ -41,6 +41,7 @@
                 <div class="card-footer">
                 	<button class="btn btn-primary btn-block ">Se Connecter</button>
                 </div>
+                <p class="mt-2"> Vous n'avez pas de compte ? <a href="{% url 'register' %}">Créer un Compte </a></p>
             </div>
            </form>
         </div>
@@ -54,12 +55,17 @@
 	$(document).ready(function(){
         $('input').keyup(function(){
         let texSaisi = $(this).val();
+        let attrName = $(this).attr('name');
+        let validatorElement = ".div-error-"+attrName;
         if(texSaisi === ""){
         	if(!$(this).hasClass('is-invalid')){
         		$(this).addClass('is-invalid');
+        		$(validatorElement).show();
         	}
         } else{
         	$(this).removeClass('is-invalid');
+
+        	$(validatorElement).hide();
         }
 
         })
