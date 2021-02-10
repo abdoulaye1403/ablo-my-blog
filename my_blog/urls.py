@@ -26,4 +26,5 @@ urlpatterns = [
     path('article/recherche', recherche, name="recherche"),
     path('message-sms', sms, name="sms"),
     path('auth/', include("app_auth.urls")),
+    path('my_admin/', include("app_admin.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
